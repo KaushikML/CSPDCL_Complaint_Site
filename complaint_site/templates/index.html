@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1 class="mt-4 mb-4">Job Application Form</h1>
+<h1 class="mt-4 mb-4">Complaint-Site</h1>
 <form method="post">
     {% csrf_token %}
     <div class="form-group mb-4">
@@ -12,23 +12,26 @@
         <input class="form-control" type="text" id="last_name" name="last_name" required>
     </div>
     <div class="form-group mb-4">
+        <label for="bp">BP number:</label>
+        <input class="form-control" type="number" id="bp" name="bp" required>
+    </div>
+    <div class="form-group mb-4">
         <label for="email">Email:</label>
         <input class="form-control" type="email" id="email" name="email" required>
     </div>
     <div class="form-group mb-4">
-        <label for="date">Available start date:</label>
+        <label for="date">Complain Date:</label>
         <input class="form-control" type="date" id="date" name="date" required>
     </div>
     <div class="form-group mb-4">
         <label for="explain">Explain:</label>
         <input class="form-control" type="text" id="explain" name="explain" required>
     </div>
-    <div class="form-group mb-4">
-        <label>Problem Type: </label>
-        <br>
-        <div class="btn-group-vertical" id="complaint">
-            <input class="btn-check form-check-input" type="radio" id="bill" name="complaint" value="bill" required>
-            <label class="btn btn-outline-secondary" for="Bill">Bill</label>
+        <div class="form-group mb-4">
+          <label>Problem Type: </label>
+          <br>
+          <div class="btn-group-vertical" id="complaint">
+            <input class="btn-check form-check-input" type="radio" id="bill" name="complaint" value="bill">  <label class="btn btn-outline-secondary" for="bill">Bill</label>
 
             <input class="btn-check form-check-input" type="radio" id="connection" name="complaint" value="connection" required>
             <label class="btn btn-outline-secondary" for="connection">Connection</label>
@@ -38,9 +41,9 @@
 
             <input class="btn-check form-check-input" type="radio" id="others" name="complaint" value="others" required>
             <label class="btn btn-outline-secondary" for="others">Others</label>
+          </div>
         </div>
 
-    </div>
     <button class="btn btn-secondary mb-4" type="submit">Submit</button>
     {% if messages %}
     <div class="alert alert-success">

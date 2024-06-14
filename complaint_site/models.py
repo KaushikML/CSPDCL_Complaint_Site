@@ -4,6 +4,7 @@ from django.db import models
 class Form(models.Model):
     first_name=models.CharField(max_length=80)
     last_name=models.CharField(max_length=80)
+    bp=models.IntegerField(null=True)
     email=models.EmailField()
     date=models.DateField()
     complaint=models.CharField(max_length=80)
