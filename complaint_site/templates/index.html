@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mt-4 mb-4">Job Application Form</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group mb-4">
+        <label for="first_name">First Name:</label>
+        <input class="form-control" type="text" id="first_name" name="first_name" required>
+    </div>
+    <div class="form-group mb-4">
+        <label for="last_name">Last Name:</label>
+        <input class="form-control" type="text" id="last_name" name="last_name" required>
+    </div>
+    <div class="form-group mb-4">
+        <label for="email">Email:</label>
+        <input class="form-control" type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group mb-4">
+        <label for="date">Available start date:</label>
+        <input class="form-control" type="date" id="date" name="date" required>
+    </div>
+    <div class="form-group mb-4">
+        <label for="explain">Explain:</label>
+        <input class="form-control" type="text" id="explain" name="explain" required>
+    </div>
+    <div class="form-group mb-4">
+        <label>Problem Type: </label>
+        <br>
+        <div class="btn-group-vertical" id="complaint">
+            <input class="btn-check form-check-input" type="radio" id="bill" name="complaint" value="bill" required>
+            <label class="btn btn-outline-secondary" for="Bill">Bill</label>
+
+            <input class="btn-check form-check-input" type="radio" id="connection" name="complaint" value="connection" required>
+            <label class="btn btn-outline-secondary" for="connection">Connection</label>
+
+            <input class="btn-check form-check-input" type="radio" id="compensation" name="complaint" value="compensation" required>
+            <label class="btn btn-outline-secondary" for="compensation">Compensation</label>
+
+            <input class="btn-check form-check-input" type="radio" id="others" name="complaint" value="others" required>
+            <label class="btn btn-outline-secondary" for="others">Others</label>
+        </div>
+
+    </div>
+    <button class="btn btn-secondary mb-4" type="submit">Submit</button>
+    {% if messages %}
+    <div class="alert alert-success">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+</form>
+{% endblock %}
