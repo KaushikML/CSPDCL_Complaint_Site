@@ -1,34 +1,46 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<h1 class="mt-4 mb-4">Complaint-Site</h1>
-<form method="post">
+<div class="container">
+
+  <h1 class="text-center mt-4 mb-4">E-Complaint Site</h1>
+
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <h2 class="text-left">Enter Details</h2> </div>
+  </div>
+
+  <form method="post" class="complaint-form">
     {% csrf_token %}
-    <div class="form-group mb-4">
-        <label for="first_name">First Name:</label>
-        <input class="form-control" type="text" id="first_name" name="first_name" required>
+
+    <div class="form-group mb-3">
+      <label for="first_name" class="mr-3">First Name:</label>
+      <input type="text" class="form-control form-control-sm" id="first_name" name="first_name" required style="width: 45%;">
     </div>
-    <div class="form-group mb-4">
-        <label for="last_name">Last Name:</label>
-        <input class="form-control" type="text" id="last_name" name="last_name" required>
+
+    <div class="form-group mb-3">
+      <label for="last_name" class="mr-3">Last Name:</label>
+      <input type="text" class="form-control form-control-sm" id="last_name" name="last_name" required style="width: 45%;">
     </div>
-    <div class="form-group mb-4">
-        <label for="bp">BP number:</label>
-        <input class="form-control" type="number" id="bp" name="bp" required>
+
+    <div class="form-group mb-3">
+      <label for="bp">Business Partner Number:</label>
+      <input type="number" class="form-control form-control-sm" id="bp" name="bp" required style="width: 45%;">
     </div>
-    <div class="form-group mb-4">
-        <label for="email">Email:</label>
-        <input class="form-control" type="email" id="email" name="email" required>
+
+    <div class="form-group mb-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control form-control-sm" id="email" name="email" required style="width: 45%;">
     </div>
-    <div class="form-group mb-4">
-        <label for="date">Complain Date:</label>
-        <input class="form-control" type="date" id="date" name="date" required>
+
+    <div class="form-group mb-3">
+      <label for="date">Complaint Date:</label>
+      <input type="date" class="form-control form-control-sm" id="date" name="date" required style="width: 30%;">
     </div>
+
+
     <div class="form-group mb-4">
-        <label for="explain">Explain:</label>
-        <input class="form-control" type="text" id="explain" name="explain" required>
-    </div>
-        <div class="form-group mb-4">
-          <label>Problem Type: </label>
+          <label>Problem Category: </label>
           <br>
           <div class="btn-group-vertical" id="complaint">
             <input class="btn-check form-check-input" type="radio" id="bill" name="complaint" value="bill">  <label class="btn btn-outline-secondary" for="bill">Bill</label>
@@ -44,13 +56,20 @@
           </div>
         </div>
 
-    <button class="btn btn-secondary mb-4" type="submit">Submit</button>
+    <div class="form-group mb-3">
+      <label for="explain">Explain:</label>
+      <textarea class="form-control" id="explain" name="explain" rows="3" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Complaint</button>
+
     {% if messages %}
-    <div class="alert alert-success">
-        {% for message in messages %}
-            {{ message }}
-        {% endfor %}
+    <div class="alert alert-success" role="alert">
+      {% for message in messages %}
+        {{ message }}
+      {% endfor %}
     </div>
     {% endif %}
-</form>
+  </form>
+</div>
 {% endblock %}

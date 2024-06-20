@@ -21,3 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('complaint_site.urls'))
 ]
+
+admin.site.site_header="CSPDCL-Admin Page"
+admin.site.site_title="Admin Page"
+admin.site.index_title="Admin Area"
